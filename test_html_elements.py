@@ -15,7 +15,7 @@ class TestH5Tag(unittest.TestCase):
 
 def test_h5_tag_content(self):
     driver = self.driver
-    driver.get("http://jenkins-225.cit.regionals.miamioh.edu/almafrtk6/")
+    driver.get("http://jenkins-225.cit.regionals.miamioh.edu/almafrtk7/")
 
     print("CURRENT URL:", driver.current_url)
     print("PAGE TITLE:", driver.title)
