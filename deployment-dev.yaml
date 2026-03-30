@@ -14,25 +14,22 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: almafrtk/225-lab3-7:latest            #<-------------change this!!!!
+        image: almafrtk/225-lab3-7:latest  #<-------change this!
         ports:
         - containerPort: 80  # Expose NGINX on port 80        
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: almafrtk-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: nginx
 spec:
-  rules:
-  - http:
+  rules: 
+  - host: 
+    http:
       paths:
-      - path: /almafrtk7(/|$)(.*)
+      - path: /
         pathType: ImplementationSpecific
-        backend:
+        backend: 
           service:
             name: dev-service
             port:
@@ -43,9 +40,9 @@ kind: Service
 metadata:
   name: dev-service
 spec:
+  selector:
+    app: nginx
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
-  selector:
-    app: nginx 
