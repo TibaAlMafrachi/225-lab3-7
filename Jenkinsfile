@@ -12,6 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                cleanWs()
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                           userRemoteConfigs: [[url: "${GITHUB_URL}"]]])
             }
@@ -71,7 +72,7 @@ pipeline {
 
         stage ("Run Security Checks") {
             steps {
-                //                                                                 ###change the IP address in this section to your cluster IP address!!!!####
+                http://10.48.229.215                                                                 ###change the IP address in this section to your cluster IP address!!!!####
                 sh 'docker pull public.ecr.aws/portswigger/dastardly:latest'
                 sh '''
                     docker run --user $(id -u) -v ${WORKSPACE}:${WORKSPACE}:rw \
