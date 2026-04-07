@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIALS_ID = 'roseaw-dockerhub'
-        DOCKER_IMAGE = 'cithit/almarftk'                                                                    //<------your MiamiID
+        DOCKER_IMAGE = 'cithit/almafrtk'                                                                    //<------your MiamiID
         IMAGE_TAG = "build-${BUILD_NUMBER}"
         GITHUB_URL = 'https://github.com/TibaAlMafrachi/225-lab3-7.git'                                    //<------your MiamiID
         KUBECONFIG = credentials('almafrtk-225-sp26')                                                         //<------your MiamiID
