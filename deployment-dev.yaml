@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: cithit/almarftk:latest  #<-------change this!
+        image: cithit/almarftk:build-19  #<-------change this!
         ports:
         - containerPort: 80  # Expose NGINX on port 80        
 ---
